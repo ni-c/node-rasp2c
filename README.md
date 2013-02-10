@@ -2,9 +2,19 @@
 
 node-module for I2C communication with the Raspberry PI
 
-## Prepare the Raspberry PI for I2C communication
+ * [Installation](#installation)
+ * [Usage](#usage)
+ * [License](#license)
+ 
+## Installation
 
-### Activate I2C kernel module
+````bash
+$ npm install rasp2c
+````
+
+### Prepare the Raspberry PI for I2C communication
+
+#### Activate I2C kernel module
 
 Edit the file `/etc/modprobe.d/raspi-blacklist.conf`
 
@@ -25,7 +35,7 @@ and comment it
 
 Leave the editor (with `:wq!`)
 
-### Load I2C kernel modules
+#### Load I2C kernel modules
 
 Load the required kernel modules
 
@@ -61,7 +71,7 @@ i2c-bcm2708
 i2c-dev
 ````
 
-### Install I2C tools
+#### Install I2C tools
 
 Install the i2c-tools
 
@@ -73,6 +83,40 @@ Add your user to the i2c usergroup so you don't need to use sudo to interact wit
 
 ````bash
 sudo usermod -aG i2c pi
+````
+
+## Usage
+
+````js
+var rasp2c = require('rasp2c');
+
+// Detect devices on the I2C Bus 0
+rasp2c.detect(0, function(err, result) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(result);
+  }
+});
+
+// Dump the addresses 0x11 - 0x15 of the I2C device at address 0xa1 on I2C bus 0
+rasp2c.dump(0, '0xa1', '0x11-0x15', function(err, result) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(result);
+  }
+});
+
+// Set the address 0x11 of the I2C device at address 0xa1 on I2C bus 0 to 0xff
+rasp2c.set(0, '0xa1', '0x11', '0xff', function(err, result) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(result);
+  }
+});
+
 ````
 
 ## License

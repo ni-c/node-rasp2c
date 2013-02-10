@@ -1,6 +1,7 @@
 {
   "name": "rasp2c",
-  "description": "Node adapter for i2c-tools on a Raspberry PI",
+  "description": "Node adapter for the i2c-tools on a Raspberry PI",
+  "keywords": [ "i2c", "raspberry", "raspberrypi", "i2c-tools", "i2cdetect", "i2cdump", "i2cset" ],
   "version": "0.0.1",
   "homepage": "http://github.com/ni-c/node-rasp2c",
   "author": {
@@ -20,9 +21,12 @@
   ],
   "main": "./index.js",
   "engines": {
-    "node": ">=0.4.0"
+    "node": "*"
   },
-  "readme": "",
+  "repository" : { 
+    "type" : "git", 
+    "url" : "http://github.com/ni-c/node-rasp2c.git"
+  },
   "readmeFilename": "README.md",
   "_id": "rasp2c@0.0.1",
   "_from": "rasp2c@>= 0.0.1"
