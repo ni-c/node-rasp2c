@@ -8,6 +8,23 @@ node-module for I2C communication with the Raspberry PI
  
 ## Installation
 
+### Install node.js on your Raspberry PI
+
+Download and compile the latest version of node.js:
+
+````bash
+$ wget http://nodejs.org/dist/v0.8.19/node-v0.8.19.tar.gz
+$ tar -zxf node-v0.8.19.tar.gz
+$ cd node-v0.8.19/
+$ ./configure
+$ make
+$ sudo make install
+````
+
+#### Install rasp2c module
+
+To install the rasp2c module, change in your project directory and type: 
+
 ````bash
 $ npm install rasp2c
 ````
@@ -90,8 +107,8 @@ sudo usermod -aG i2c pi
 ````js
 var rasp2c = require('rasp2c');
 
-// Detect devices on the I2C Bus 0
-rasp2c.detect(0, function(err, result) {
+// Detect devices on the I2C Bus
+rasp2c.detect(function(err, result) {
   if (err) {
     console.log(err);
   } else {
@@ -99,8 +116,8 @@ rasp2c.detect(0, function(err, result) {
   }
 });
 
-// Dump the addresses 0x11 - 0x15 of the I2C device at address 0xa1 on I2C bus 0
-rasp2c.dump(0, '0xa1', '0x11-0x15', function(err, result) {
+// Dump the addresses 0x11 - 0x15 of the I2C device at address 0xa1 on the I2C bus
+rasp2c.dump('0xa1', '0x11-0x15', function(err, result) {
   if (err) {
     console.log(err);
   } else {
@@ -108,8 +125,8 @@ rasp2c.dump(0, '0xa1', '0x11-0x15', function(err, result) {
   }
 });
 
-// Set the address 0x11 of the I2C device at address 0xa1 on I2C bus 0 to 0xff
-rasp2c.set(0, '0xa1', '0x11', '0xff', function(err, result) {
+// Set the address 0x11 of the I2C device at address 0xa1 on the I2C bus to 0xff
+rasp2c.set('0xa1', '0x11', '0xff', function(err, result) {
   if (err) {
     console.log(err);
   } else {
