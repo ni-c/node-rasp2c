@@ -99,10 +99,12 @@ $ sudo apt-get install i2c-tools
 Add your user to the i2c usergroup so you don't need to use sudo to interact with the i2c device.
 
 ````bash
-sudo usermod -aG i2c pi
+$ sudo usermod -aG i2c pi
 ````
 
 ## Usage
+
+An example application can be found here: https://github.com/ni-c/node-rasp2c-example
 
 ````js
 var rasp2c = require('rasp2c');
