@@ -1,6 +1,6 @@
 # node-rasp2c
 
-node-module for I2C communication with the Raspberry PI
+node.js-module for I2C communication with the Raspberry PI.
 
  * [Installation](#installation)
  * [Usage](#usage)
