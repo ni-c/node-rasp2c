@@ -136,6 +136,15 @@ rasp2c.set('0xa1', '0x11', '0xff', function(err, result) {
   }
 });
 
+// Get the address 0x11 of the I2C device at address 0xa1 on the I2C bus
+rasp2c.get('0xa1', '0x11', function(err, result) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(result);
+  }
+});
+
 ````
 
 ## License
